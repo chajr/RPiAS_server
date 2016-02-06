@@ -1,0 +1,571 @@
+[
+    {
+        "name": "aura/dispatcher",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Dispatcher.git",
+            "reference": "8cfffc653a051082caef8d5f413f8cc5df2519df"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Dispatcher/zipball/8cfffc653a051082caef8d5f413f8cc5df2519df",
+            "reference": "8cfffc653a051082caef8d5f413f8cc5df2519df",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2015-04-04 14:09:19",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "library"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Dispatcher\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Dispatcher Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Dispatcher/contributors"
+            }
+        ],
+        "description": "Creates objects from a factory and invokes methods using named parameters; also provides a trait for invoking closures and object methods with named parameters.",
+        "homepage": "https://github.com/auraphp/Aura.Dispatcher",
+        "keywords": [
+            "controller",
+            "dispatcher",
+            "factory"
+        ]
+    },
+    {
+        "name": "aura/cli",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Cli.git",
+            "reference": "65d945819d51379a20371ebf3893987cdc18af5a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Cli/zipball/65d945819d51379a20371ebf3893987cdc18af5a",
+            "reference": "65d945819d51379a20371ebf3893987cdc18af5a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "aura/di": "~2.0"
+        },
+        "time": "2016-01-05 16:13:31",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "library",
+                "config": {
+                    "common": "Aura\\Cli\\_Config\\Common"
+                }
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Cli\\": "src/",
+                "Aura\\Cli\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Cli Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Cli/contributors"
+            }
+        ],
+        "description": "Provides the equivalent of request (Context) and response (Stdio) classes for a command line environment, including Getopt support.",
+        "homepage": "https://github.com/auraphp/Aura.Cli",
+        "keywords": [
+            "cli",
+            "command",
+            "command line",
+            "getopt",
+            "options",
+            "stdio"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
+            "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-01-06 21:40:42",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "aura/di",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Di.git",
+            "reference": "81d5d9c602ca292a16e32001dcbd2adab5350e28"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Di/zipball/81d5d9c602ca292a16e32001dcbd2adab5350e28",
+            "reference": "81d5d9c602ca292a16e32001dcbd2adab5350e28",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-01-21 09:34:53",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "library"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Di\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Di Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Di/contributors"
+            }
+        ],
+        "description": "Provides a dependency injection container system with native support for constructor- and setter-based injection, lazy-loading of services, and inheritable configuration of setters and constructor params.",
+        "homepage": "https://github.com/auraphp/Aura.Di",
+        "keywords": [
+            "container",
+            "dependency injection",
+            "dependency injection container",
+            "di",
+            "di container"
+        ]
+    },
+    {
+        "name": "aura/project-kernel",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Project_Kernel.git",
+            "reference": "644475dbb4859c24aeeb309fd76a9c3e644ba9be"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Project_Kernel/zipball/644475dbb4859c24aeeb309fd76a9c3e644ba9be",
+            "reference": "644475dbb4859c24aeeb309fd76a9c3e644ba9be",
+            "shasum": ""
+        },
+        "require": {
+            "aura/di": "~2.0",
+            "php": ">=5.3.0",
+            "psr/log": "~1.0"
+        },
+        "time": "2015-03-27 22:29:48",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "kernel",
+                "config": {
+                    "common": "Aura\\Project_Kernel\\_Config\\Common"
+                }
+            },
+            "branch-alias": {
+                "dev-develop-2": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Project_Kernel\\": "src/",
+                "Aura\\Project_Kernel\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Project_Kernel Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Project_Kernel/contributors"
+            }
+        ],
+        "description": "The shared kernel files for an Aura project.",
+        "homepage": "https://github.com/auraphp/Aura.Project_Kernel",
+        "keywords": [
+            "kernel",
+            "project"
+        ]
+    },
+    {
+        "name": "aura/cli-kernel",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Cli_Kernel.git",
+            "reference": "f9b43d014eb3c2fa3697d0907835087cb0c7aed6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Cli_Kernel/zipball/f9b43d014eb3c2fa3697d0907835087cb0c7aed6",
+            "reference": "f9b43d014eb3c2fa3697d0907835087cb0c7aed6",
+            "shasum": ""
+        },
+        "require": {
+            "aura/cli": "~2.0",
+            "aura/dispatcher": "~2.0",
+            "aura/project-kernel": "~2.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-04-04 14:02:32",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "kernel",
+                "config": {
+                    "common": "Aura\\Cli_Kernel\\_Config\\Common",
+                    "cli-kernel-test": "Aura\\Cli_Kernel\\_Config\\CliKernelTest"
+                }
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Cli_Kernel\\": "src/",
+                "Aura\\Cli_Kernel\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Cli_Kernel Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Cli_Kernel/contributors"
+            }
+        ],
+        "description": "The kernel files for an Aura CLI project.",
+        "homepage": "https://github.com/auraphp/Aura.Cli_Kernel",
+        "keywords": [
+            "cli",
+            "kernel"
+        ]
+    },
+    {
+        "name": "aura/web",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Web.git",
+            "reference": "3874c3cd55bc247bfe8ebaf64133c90a11c0fc95"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Web/zipball/3874c3cd55bc247bfe8ebaf64133c90a11c0fc95",
+            "reference": "3874c3cd55bc247bfe8ebaf64133c90a11c0fc95",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "aura/di": "~2.0"
+        },
+        "time": "2015-04-04 16:00:33",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "library",
+                "config": {
+                    "common": "Aura\\Web\\_Config\\Common"
+                }
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Web\\": "src/",
+                "Aura\\Web\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Web Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Web/contributors"
+            }
+        ],
+        "description": "Provides web Request and Response objects for use by web controllers and actions. These are representations of the PHP web environment, not HTTP request and response objects proper.",
+        "homepage": "https://github.com/auraphp/Aura.Web",
+        "keywords": [
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "aura/router",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Router.git",
+            "reference": "b98ca5060bfd24a34cd6159d18663ea7dab33bfe"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/b98ca5060bfd24a34cd6159d18663ea7dab33bfe",
+            "reference": "b98ca5060bfd24a34cd6159d18663ea7dab33bfe",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "aura/di": "~2.0"
+        },
+        "time": "2015-09-07 16:00:47",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "library",
+                "config": {
+                    "common": "Aura\\Router\\_Config\\Common"
+                }
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Router\\": "src/",
+                "Aura\\Router\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Router Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Router/contributors"
+            }
+        ],
+        "description": "A web router implementation; given a URI path and a copy of $_SERVER, it will extract path-info parameter values for a specific route.",
+        "homepage": "https://github.com/auraphp/Aura.Router",
+        "keywords": [
+            "route",
+            "router",
+            "routing"
+        ]
+    },
+    {
+        "name": "aura/web-kernel",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/auraphp/Aura.Web_Kernel.git",
+            "reference": "c2d4b8f51f3b1562f77e32e7f47a7c922420ee37"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/auraphp/Aura.Web_Kernel/zipball/c2d4b8f51f3b1562f77e32e7f47a7c922420ee37",
+            "reference": "c2d4b8f51f3b1562f77e32e7f47a7c922420ee37",
+            "shasum": ""
+        },
+        "require": {
+            "aura/dispatcher": "~2.0",
+            "aura/project-kernel": "~2.0",
+            "aura/router": "~2.0",
+            "aura/web": "~2.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-11-30 18:31:21",
+        "type": "library",
+        "extra": {
+            "aura": {
+                "type": "kernel",
+                "config": {
+                    "common": "Aura\\Web_Kernel\\_Config\\Common",
+                    "web-kernel-test": "Aura\\Web_Kernel\\_Config\\WebKernelTest"
+                }
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Aura\\Web_Kernel\\": "src/",
+                "Aura\\Web_Kernel\\_Config\\": "config/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Aura.Web_Kernel Contributors",
+                "homepage": "https://github.com/auraphp/Aura.Web_Kernel/contributors"
+            }
+        ],
+        "description": "The kernel files for an Aura web project.",
+        "homepage": "https://github.com/auraphp/Aura.Web_Kernel",
+        "keywords": [
+            "kernel",
+            "web"
+        ]
+    },
+    {
+        "name": "monolog/monolog",
+        "version": "1.x-dev",
+        "version_normalized": "1.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Seldaek/monolog.git",
+            "reference": "79817af0de141a2278e54acd01fb2532a7548516"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/79817af0de141a2278e54acd01fb2532a7548516",
+            "reference": "79817af0de141a2278e54acd01fb2532a7548516",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "psr/log": "~1.0"
+        },
+        "provide": {
+            "psr/log-implementation": "1.0.0"
+        },
+        "require-dev": {
+            "aws/aws-sdk-php": "^2.4.9",
+            "doctrine/couchdb": "~1.0@dev",
+            "graylog2/gelf-php": "~1.0",
+            "jakub-onderka/php-parallel-lint": "0.9",
+            "php-console/php-console": "^3.1.3",
+            "phpunit/phpunit": "~4.5",
+            "phpunit/phpunit-mock-objects": "2.3.0",
+            "raven/raven": "^0.13",
+            "ruflin/elastica": ">=0.90 <3.0",
+            "swiftmailer/swiftmailer": "~5.3",
+            "videlalvaro/php-amqplib": "~2.4"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+            "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+            "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+            "ext-mongo": "Allow sending log messages to a MongoDB server",
+            "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+            "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+            "php-console/php-console": "Allow sending log messages to Google Chrome",
+            "raven/raven": "Allow sending log messages to a Sentry server",
+            "rollbar/rollbar": "Allow sending log messages to Rollbar",
+            "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+            "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
+        },
+        "time": "2016-01-22 18:13:50",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Monolog\\": "src/Monolog"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jordi Boggiano",
+                "email": "j.boggiano@seld.be",
+                "homepage": "http://seld.be"
+            }
+        ],
+        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+        "homepage": "http://github.com/Seldaek/monolog",
+        "keywords": [
+            "log",
+            "logging",
+            "psr-3"
+        ]
+    }
+]

@@ -5,3 +5,4 @@ tmp/cache
 !tmp/cache/.placeholder
 tmp/log
 !tmp/log/.placeholder
+etc/config.json

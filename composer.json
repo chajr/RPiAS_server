@@ -17,7 +17,8 @@
         "aura/cli-kernel": "~2.0",
         "aura/web-kernel": "~2.0",
         "monolog/monolog": "~1.0",
-        "foa/html-view-bundle": "2.*"
+        "foa/html-view-bundle": "2.*",
+        "aura/sqlquery": "2.6.*"
     },
     "autoload": {
         "psr-4": {

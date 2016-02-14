@@ -1,8 +1,7 @@
 <?php
-
 echo json_encode([
-    'status' => 'success',
+    'status' => $this->status,
     'data' => [
-        'message' => 'success message'
+        'message' => $this->message
     ]
 ]);

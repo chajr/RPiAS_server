@@ -61,12 +61,12 @@ class Common extends Config
 
         $router->add('hello', '/')
                ->setValues(array('action' => 'hello'));
-//
+
         $router->add('system', '/system')
                ->setValues(['action' => 'system']);
     }
 
-    public function modifyWebDispatcher($di)
+    public function modifyWebDispatcher(Container $di)
     {
         $view = $di->get('view');
         $dispatcher = $di->get('aura/web-kernel:dispatcher');
@@ -82,7 +82,8 @@ class Common extends Config
         $dispatcher->setObject('system', function () use ($view, $response, $request) {
             $view->setView('api_response');
             $view->setLayout('index');
-            $response->content->set($view->__invoke());
+
+            (new \System\setData($request, $response, $view));
         });
     }
 }

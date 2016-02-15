@@ -68,9 +68,13 @@ class Common extends Config
 
     public function modifyWebDispatcher(Container $di)
     {
+        /** @var \Aura\View\View $view */
         $view = $di->get('view');
+        /** @var \Aura\Dispatcher\Dispatcher $dispatcher */
         $dispatcher = $di->get('aura/web-kernel:dispatcher');
+        /** @var \Aura\Web\Response $response */
         $response = $di->get('aura/web-kernel:response');
+        /** @var \Aura\Web\Request $request */
         $request = $di->get('aura/web-kernel:request');
 
         $dispatcher->setObject('hello', function () use ($view, $response, $request) {

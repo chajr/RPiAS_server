@@ -40,12 +40,13 @@ class Connect
     /**
      * execute query
      *
-     * @param string $query
+     * @param \Aura\SqlQuery\AbstractQuery $queryObject
      * @return array
      * @throws \Exception
      */
-    public function query($query)
+    public function query($queryObject)
     {
+        $query = $queryObject->__toString();
         $sth = self::$_connection->prepare($query);
 
         if (!$sth) {

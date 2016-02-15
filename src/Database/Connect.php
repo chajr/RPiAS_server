@@ -61,7 +61,7 @@ class Connect
             throw new \Exception('DB Error: ' . $err[0] . ' - ' . $err[2]);
         }
 
-        return $sth->fetchAll();
+        return $sth->fetch(\PDO::FETCH_ASSOC);
     }
 
     /**

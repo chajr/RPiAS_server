@@ -18,6 +18,7 @@
         "aura/web-kernel": "~2.0",
         "monolog/monolog": "~1.0",
         "foa/html-view-bundle": "2.*",
+        "aura/sql": "2.4.*",
         "aura/sqlquery": "2.6.*"
     },
     "autoload": {

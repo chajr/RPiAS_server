@@ -40,7 +40,7 @@ class Connect
     /**
      * execute query
      *
-     * @param \Aura\SqlQuery\AbstractQuery $queryObject
+     * @param \Aura\SqlQuery\AbstractQuery|\Aura\SqlQuery\Common\SelectInterface $queryObject
      * @return array
      * @throws \Exception
      */

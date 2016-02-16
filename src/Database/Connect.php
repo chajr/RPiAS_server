@@ -54,6 +54,13 @@ class Connect
             throw new \Exception('DB Error: ' . $err[0] . ' - ' . $err[2]);
         }
 
+        $values = $queryObject->getBindValues();
+
+        foreach ($values as $key => $val) {
+            $sth->bindParam(':' . $key, $val);
+            unset($val);
+        }
+
         $res = $sth->execute();
 
         if (!$res) {

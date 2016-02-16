@@ -32,7 +32,7 @@ class setData
                 ->insert()
                 ->into('system_log')
                 ->cols([
-                    'date' => $post->get('date', 'NOW()'),
+                    'log_time' => $post->get('date', 'NOW()'),
                     'cpu_utilization' => $post->get('cpu_utilization', 0),
                     'memory_free' => $post->get('memory_free', 0),
                     'memory_used' => $post->get('memory_used', 0),

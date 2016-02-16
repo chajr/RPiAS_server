@@ -62,7 +62,7 @@ class Common extends Config
         $router->add('hello', '/')
                ->setValues(array('action' => 'hello'));
 
-        $router->add('system', '/system')
+        $router->addPost('system', '/system')
                ->setValues(['action' => 'system']);
     }
 

@@ -20,7 +20,7 @@ class setData
         $message = 'Data written successfully.';
 
         $secureToken = (new Config)->getConfig()['secure_token'];
-        $retrievedSecureToken = $request->query->get('secure', '');
+        $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status = 'error';

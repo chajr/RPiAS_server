@@ -64,6 +64,9 @@ class Common extends Config
 
         $router->addPost('system', '/system')
                ->setValues(['action' => 'system']);
+
+        $router->addPost('alert', '/alert')
+               ->setValues(['action' => 'alert']);
     }
 
     public function modifyWebDispatcher(Container $di)
@@ -88,6 +91,13 @@ class Common extends Config
             $view->setLayout('index');
 
             (new \System\setData($request, $response, $view));
+        });
+
+        $dispatcher->setObject('alert', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('index');
+
+            (new \Alert\Uploader($request, $response, $view));
         });
     }
 }

@@ -19,7 +19,8 @@
         "monolog/monolog": "~1.0",
         "foa/html-view-bundle": "2.*",
         "aura/sql": "2.4.*",
-        "aura/sqlquery": "2.6.*"
+        "aura/sqlquery": "2.6.*",
+        "symfony/filesystem": "2.*"
     },
     "autoload": {
         "psr-4": {

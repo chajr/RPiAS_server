@@ -23,13 +23,13 @@ class Connect
         if (is_null(self::$_connection)) {
             try {
                 $dbConfig = Config::getConfig()['database'];
-    
+
                 self::$_connection = new ExtendedPdo(
                     "mysql:host={$dbConfig['host']};dbname={$dbConfig['database']};port={$dbConfig['port']}",
                     $dbConfig['user'],
                     $dbConfig['pass']
                 );
-    
+
                 self::$_connection->connect();
             } catch (\Exception $e) {
                 Log::addError($e->getMessage(), 'db connection');

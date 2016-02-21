@@ -35,10 +35,10 @@ class Uploader
             if ($image['error'] === 0) {
                 $fileSystem = new Filesystem();
                 $tmpName = $image['tmp_name'];
-                $path = '../storage';
+                $path = '../storage/';
 
                 try {
-                    $fileSystem->copy($tmpName, $path);
+                    $fileSystem->copy($tmpName, $path . $image['name']);
                 } catch (\Exception $e) {
                     Log::addError('Image upload error: ' . $e->getMessage());
                     $status = 'error';

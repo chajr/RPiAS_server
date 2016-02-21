@@ -13,7 +13,7 @@ class FrameworkProjectTest extends \PHPUnit_Framework_TestCase
 
     public function testWeb()
     {
-        $url = "http://localhost:8080/index.php";
+        $url = "http://rpias.tt/";
         $actual = file_get_contents($url);
         $expect = 'Hello World!';
         $this->assertSame($expect, $actual);

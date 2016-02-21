@@ -9,6 +9,12 @@ class Common extends Config
     public function define(Container $di)
     {
         $di->set('aura/project-kernel:logger', $di->lazyNew('Monolog\Logger'));
+
+        $di->params['Aura\View\TemplateRegistry']['paths'] = array(
+            dirname(__DIR__) . '/templates/views',
+            dirname(__DIR__) . '/templates/layouts',
+        );
+        $di->set('view', $di->lazyNew('Aura\View\View'));
     }
 
     public function modify(Container $di)
@@ -55,15 +61,43 @@ class Common extends Config
 
         $router->add('hello', '/')
                ->setValues(array('action' => 'hello'));
+
+        $router->addPost('system', '/system')
+               ->setValues(['action' => 'system']);
+
+        $router->addPost('alert', '/alert')
+               ->setValues(['action' => 'alert']);
     }
 
-    public function modifyWebDispatcher($di)
+    public function modifyWebDispatcher(Container $di)
     {
+        /** @var \Aura\View\View $view */
+        $view = $di->get('view');
+        /** @var \Aura\Dispatcher\Dispatcher $dispatcher */
         $dispatcher = $di->get('aura/web-kernel:dispatcher');
+        /** @var \Aura\Web\Response $response */
+        $response = $di->get('aura/web-kernel:response');
+        /** @var \Aura\Web\Request $request */
+        $request = $di->get('aura/web-kernel:request');
 
-        $dispatcher->setObject('hello', function () use ($di) {
-            $response = $di->get('aura/web-kernel:response');
-            $response->content->set('Hello World!');
+        $dispatcher->setObject('hello', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('index');
+            $response->content->set($view->__invoke());
+        });
+
+        $dispatcher->setObject('system', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('index');
+
+            (new \System\setData($request, $response, $view));
+        });
+
+        $dispatcher->setObject('alert', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('index');
+
+            (new \Alert\Uploader($request, $response, $view));
         });
     }
 }

@@ -16,7 +16,11 @@
     "require": {
         "aura/cli-kernel": "~2.0",
         "aura/web-kernel": "~2.0",
-        "monolog/monolog": "~1.0"
+        "monolog/monolog": "~1.0",
+        "foa/html-view-bundle": "2.*",
+        "aura/sql": "2.4.*",
+        "aura/sqlquery": "2.6.*",
+        "symfony/filesystem": "2.*"
     },
     "autoload": {
         "psr-4": {

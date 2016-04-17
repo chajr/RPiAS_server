@@ -24,7 +24,7 @@ class setData
 
         if ($secureToken !== $retrievedSecureToken) {
             $status = 'error';
-            $message = 'Incorrect secure token';
+            $message = 'Incorrect secure token.';
         } else {
             $post = $request->post;
 

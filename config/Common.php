@@ -65,6 +65,9 @@ class Common extends Config
         $router->addPost('system', '/system')
                ->setValues(['action' => 'system']);
 
+        $router->addPost('command', '/command')
+               ->setValues(['action' => 'command']);
+
         $router->addPost('alert', '/alert')
                ->setValues(['action' => 'alert']);
     }
@@ -89,6 +92,13 @@ class Common extends Config
         $dispatcher->setObject('system', function () use ($view, $response, $request) {
             $view->setView('api_response');
             $view->setLayout('index');
+
+            (new \System\setData($request, $response, $view));
+        });
+
+        $dispatcher->setObject('command', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('command');
 
             (new \System\setData($request, $response, $view));
         });

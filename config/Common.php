@@ -59,14 +59,14 @@ class Common extends Config
     {
         $router = $di->get('aura/web-kernel:router');
 
-        $router->add('hello', '/')
-               ->setValues(array('action' => 'hello'));
-
         $router->addPost('system', '/system')
                ->setValues(['action' => 'system']);
 
-        $router->addPost('command', '/command')
-               ->setValues(['action' => 'command']);
+        $router->addGet('command_get', '/command')
+               ->setValues(['action' => 'command_get']);
+
+        $router->addPost('command_post', '/command')
+               ->setValues(['action' => 'command_post']);
 
         $router->addPost('alert', '/alert')
                ->setValues(['action' => 'alert']);
@@ -96,11 +96,18 @@ class Common extends Config
             (new \System\setData($request, $response, $view));
         });
 
-        $dispatcher->setObject('command', function () use ($view, $response, $request) {
+        $dispatcher->setObject('command_post', function () use ($view, $response, $request) {
             $view->setView('api_response');
             $view->setLayout('command');
 
-            (new \System\setData($request, $response, $view));
+            (new \Command\setData($request, $response, $view));
+        });
+
+        $dispatcher->setObject('command_get', function () use ($view, $response, $request) {
+            $view->setView('api_response');
+            $view->setLayout('command');
+
+            (new \Command\getData($request, $response, $view));
         });
 
         $dispatcher->setObject('alert', function () use ($view, $response, $request) {

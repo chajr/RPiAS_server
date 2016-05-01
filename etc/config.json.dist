@@ -1,0 +1,48 @@
+{
+    "database": {
+        "host": "",
+        "port": "",
+        "user": "",
+        "pass": "",
+        "database": ""
+    },
+    "secure_token": "",
+    "routing": {
+        "system": {
+            "route": "/system",
+            "method": "post",
+            "action": "system",
+            "view": "api_response",
+            "layout": "index",
+            "object": "\\System\\setData",
+            "enabled": true
+        },
+        "command_get": {
+            "route": "/command",
+            "method": "post",
+            "action": "command_get",
+            "view": "api_response",
+            "layout": "command",
+            "object": "\\Command\\getData",
+            "enabled": true
+        },
+        "command_set": {
+            "route": "/system",
+            "method": "post",
+            "action": "command_set",
+            "view": "api_response",
+            "layout": "command",
+            "object": "\\Command\\setData",
+            "enabled": true
+        },
+        "alert": {
+            "route": "/system",
+            "method": "post",
+            "action": "alert",
+            "view": "api_response",
+            "layout": "index",
+            "object": "\\Alert\\Uploader",
+            "enabled": true
+        }
+    }
+}

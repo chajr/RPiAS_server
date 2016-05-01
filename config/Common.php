@@ -3,9 +3,15 @@ namespace Aura\Framework_Project\_Config;
 
 use Aura\Di\Config;
 use Aura\Di\Container;
+use Config\Config as SystemConfig;
 
 class Common extends Config
 {
+    /**
+     * @var array
+     */
+    protected $config = [];
+
     public function define(Container $di)
     {
         $di->set('aura/project-kernel:logger', $di->lazyNew('Monolog\Logger'));
@@ -57,19 +63,17 @@ class Common extends Config
 
     public function modifyWebRouter(Container $di)
     {
+        $this->init();
         $router = $di->get('aura/web-kernel:router');
 
-        $router->addPost('system', '/system')
-               ->setValues(['action' => 'system']);
+        foreach ($this->config['routing'] as $name => $settings) {
+            if ($settings['enabled'] === false) {
+                continue;
+            }
 
-        $router->addPost('command_get', '/command')
-               ->setValues(['action' => 'command_get']);
-
-        $router->addPost('command_set', '/command')
-               ->setValues(['action' => 'command_post']);
-
-        $router->addPost('alert', '/alert')
-               ->setValues(['action' => 'alert']);
+            $method = 'add' . ucfirst($settings['method']);
+            $router->$method($name, $settings['route'])->setValues(['action' => $settings['action']]);
+        }
     }
 
     public function modifyWebDispatcher(Container $di)
@@ -83,38 +87,33 @@ class Common extends Config
         /** @var \Aura\Web\Request $request */
         $request = $di->get('aura/web-kernel:request');
 
-        $dispatcher->setObject('hello', function () use ($view, $response, $request) {
-            $view->setView('api_response');
-            $view->setLayout('index');
-            $response->content->set($view->__invoke());
-        });
+        $this->init();
 
-        $dispatcher->setObject('system', function () use ($view, $response, $request) {
-            $view->setView('api_response');
-            $view->setLayout('index');
+        foreach ($this->config['routing'] as $settings) {
+            if ($settings['enabled'] === false) {
+                continue;
+            }
 
-            (new \System\setData($request, $response, $view));
-        });
+            $dispatcher->setObject($settings['action'], function () use ($view, $response, $request, $settings) {
+                $view->setView($settings['view']);
+                $view->setLayout($settings['layout']);
 
-        $dispatcher->setObject('command_set', function () use ($view, $response, $request) {
-            $view->setView('api_response');
-            $view->setLayout('command');
+                (new $settings['object']($request, $response, $view));
+            });
+        }
+    }
 
-            (new \Command\setData($request, $response, $view));
-        });
+    /**
+     * initialize configuration
+     *
+     * @return $this
+     */
+    protected function init()
+    {
+        if (empty($this->config)) {
+            $this->config = (new SystemConfig)->getConfig();
+        }
 
-        $dispatcher->setObject('command_get', function () use ($view, $response, $request) {
-            $view->setView('api_response');
-            $view->setLayout('command');
-
-            (new \Command\getData($request, $response, $view));
-        });
-
-        $dispatcher->setObject('alert', function () use ($view, $response, $request) {
-            $view->setView('api_response');
-            $view->setLayout('index');
-
-            (new \Alert\Uploader($request, $response, $view));
-        });
+        return $this;
     }
 }

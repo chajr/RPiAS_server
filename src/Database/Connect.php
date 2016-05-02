@@ -41,7 +41,7 @@ class Connect
      * execute query
      *
      * @param \Aura\SqlQuery\AbstractQuery|\Aura\SqlQuery\Common\SelectInterface|\Aura\SqlQuery\Common\ValuesInterface $queryObject
-     * @return array
+     * @return array|\PDOStatement
      * @throws \Exception
      */
     public function query($queryObject)

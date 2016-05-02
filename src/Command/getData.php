@@ -17,7 +17,6 @@ class getData
     public function __construct($request, $response, $view)
     {
         $status = 'success';
-        $message = '';
 
         $secureToken = (new Config)->getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
@@ -27,9 +26,12 @@ class getData
             $status = 'error';
             $message = 'Incorrect secure token.';
         } else {
-            $post = $request->post;
-
-
+            try {
+                $message = json_encode($this->getCommands($host));
+            } catch (\Exception $e) {
+                $status = 'error';
+                $message = $e->getMessage();
+            }
         }
 
         $view->setData([
@@ -40,7 +42,14 @@ class getData
         $response->content->set($view->__invoke());
     }
 
-    protected function _getCommands($host)
+    /**
+     * get all don't executed commands from database
+     *
+     * @param string $host
+     * @return array
+     * @throws \Exception
+     */
+    protected function getCommands($host)
     {
         $query = (new\Database\Query)
             ->select()
@@ -54,6 +63,6 @@ class getData
             ->where('consumed = 0')
             ->where("host = '$host'");
 
-        return (new Connect)->query($query);
+        return (new Connect)->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

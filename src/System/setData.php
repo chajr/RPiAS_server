@@ -28,12 +28,14 @@ class setData
         } else {
             $post = $request->post;
 
+            $proc = 100 - $post->get('cpu_utilization', 0);
+
             $query = (new\Database\Query)
                 ->insert()
                 ->into('system_log')
                 ->cols([
                     'log_time' => $post->get('date', 'NOW()'),
-                    'cpu_utilization' => $post->get('cpu_utilization', 0),
+                    'cpu_utilization' => $proc,
                     'memory_free' => $post->get('memory_free', 0),
                     'memory_used' => $post->get('memory_used', 0),
                     'uptime_p' => $post->get('uptime_p', ''),

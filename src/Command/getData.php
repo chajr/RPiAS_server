@@ -51,7 +51,7 @@ class getData
      */
     protected function getCommands($host)
     {
-        $query = (new\Database\Query)
+        $query = (new \Database\Query)
             ->select()
             ->from('commands')
             ->cols([

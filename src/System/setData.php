@@ -49,7 +49,7 @@ class setData
                     'hostname' => $post->get('hostname', ''),
                     'ip_internal' => $post->get('ip_internal', ''),
                     'ip_external' => $post->get('ip_external', ''),
-                    'extra' => $post->get('extra', ''),
+                    'extra' => json_encode($post->get('extra', '')),
                     'disk_usage' => $post->get('disk_usage', ''),
                 ]);
             (new Connect)->query($query);

@@ -18,7 +18,7 @@
             "enabled": true
         },
         "command_get": {
-            "route": "/command",
+            "route": "/command_get",
             "method": "post",
             "action": "command_get",
             "view": "api_response",
@@ -27,7 +27,7 @@
             "enabled": true
         },
         "command_set": {
-            "route": "/system",
+            "route": "/command_set",
             "method": "post",
             "action": "command_set",
             "view": "api_response",

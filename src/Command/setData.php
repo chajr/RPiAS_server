@@ -4,6 +4,7 @@ namespace Command;
 
 use Database\Connect;
 use Config\Config;
+use Database\Query;
 
 class setData
 {
@@ -17,7 +18,7 @@ class setData
     public function __construct($request, $response, $view)
     {
         $status = 'success';
-        $message = 'Data written successfully.';
+        $message = 'Data updated successfully.';
 
         $secureToken = (new Config)->getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
@@ -27,8 +28,21 @@ class setData
             $message = 'Incorrect secure token.';
         } else {
             $post = $request->post;
+            $commandId = $post->get('command_id', null);
+            $consumedDate = $post->get('command_consumed_date_time', '0000-00-00 00:00:00');
 
-            
+            if ($commandId) {
+                $query = (new Query)
+                    ->update()
+                    ->table('commands')
+                    ->cols([
+                        'consumed' => 1,
+                        'command_consumed_date_time' => $consumedDate,
+                    ])
+                    ->where('command_id = ?', $commandId);
+
+                (new Connect)->query($query);
+            }
         }
 
         $view->setData([

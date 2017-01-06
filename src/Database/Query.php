@@ -44,4 +44,14 @@ class Query
     {
         return  $this->_factory->newInsert();
     }
+
+    /**
+     * return update object
+     *
+     * @return \Aura\SqlQuery\Common\UpdateInterface
+     */
+    public function update()
+    {
+        return $this->_factory->newUpdate();
+    }
 }

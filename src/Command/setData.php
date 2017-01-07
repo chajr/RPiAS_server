@@ -30,6 +30,7 @@ class setData
             $post = $request->post;
             $commandId = $post->get('command_id', null);
             $consumedDate = $post->get('command_consumed_date_time', '0000-00-00 00:00:00');
+            $mongoId = $post->get('mongo_id', null);
 
             if ($commandId) {
                 $query = (new Query)
@@ -38,6 +39,7 @@ class setData
                     ->cols([
                         'consumed' => 1,
                         'command_consumed_date_time' => $consumedDate,
+                        'mongo_id' => $mongoId,
                     ])
                     ->where('command_id = ?', $commandId);
 

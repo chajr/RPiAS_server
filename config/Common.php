@@ -12,17 +12,25 @@ class Common extends Config
      */
     protected $config = [];
 
+    /**
+     * @param Container $di
+     * @return void
+     */
     public function define(Container $di)
     {
         $di->set('aura/project-kernel:logger', $di->lazyNew('Monolog\Logger'));
 
-        $di->params['Aura\View\TemplateRegistry']['paths'] = array(
+        $di->params['Aura\View\TemplateRegistry']['paths'] = [
             dirname(__DIR__) . '/templates/views',
             dirname(__DIR__) . '/templates/layouts',
-        );
+        ];
         $di->set('view', $di->lazyNew('Aura\View\View'));
     }
 
+    /**
+     * @param Container $di
+     * @return void
+     */
     public function modify(Container $di)
     {
         $this->modifyLogger($di);
@@ -31,6 +39,9 @@ class Common extends Config
         $this->modifyWebDispatcher($di);
     }
 
+    /**
+     * @param Container $di
+     */
     protected function modifyLogger(Container $di)
     {
         $project = $di->get('project');
@@ -40,12 +51,13 @@ class Common extends Config
         $logger = $di->get('aura/project-kernel:logger');
         $logger->pushHandler($di->newInstance(
             'Monolog\Handler\StreamHandler',
-            array(
-                'stream' => $file,
-            )
+            ['stream' => $file]
         ));
     }
 
+    /**
+     * @param Container $di
+     */
     protected function modifyCliDispatcher(Container $di)
     {
         $context = $di->get('aura/cli-kernel:context');
@@ -61,6 +73,9 @@ class Common extends Config
         );
     }
 
+    /**
+     * @param Container $di
+     */
     public function modifyWebRouter(Container $di)
     {
         $this->init();
@@ -76,6 +91,9 @@ class Common extends Config
         }
     }
 
+    /**
+     * @param Container $di
+     */
     public function modifyWebDispatcher(Container $di)
     {
         /** @var \Aura\View\View $view */

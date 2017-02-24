@@ -37,11 +37,14 @@ CREATE TABLE `commands` (
   PRIMARY KEY (`command_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2;
 
-ALTER TABLE `zmp`.`system_log` 
+ALTER TABLE `zmp`.`system_log`
 ADD COLUMN `disk_usage` VARCHAR(45) NULL DEFAULT NULL AFTER `log_server_time`;
 
-ALTER TABLE `zmp`.`commands` 
+ALTER TABLE `zmp`.`system_log`
+ADD COLUMN `cpu_temp` VARCHAR(25) NULL DEFAULT NULL AFTER `system_log`;
+
+ALTER TABLE `zmp`.`commands`
 ADD COLUMN `command_consumed_date_time` DATETIME NULL DEFAULT NULL AFTER `to_be_exec`;
 
-ALTER TABLE `zmp`.`commands` 
+ALTER TABLE `zmp`.`commands`
 ADD COLUMN `mongo_id` VARCHAR(24) NULL DEFAULT NULL AFTER `command_consumed_date_time`;

@@ -41,7 +41,7 @@ ALTER TABLE `zmp`.`system_log`
 ADD COLUMN `disk_usage` VARCHAR(45) NULL DEFAULT NULL AFTER `log_server_time`;
 
 ALTER TABLE `zmp`.`system_log`
-ADD COLUMN `cpu_temp` VARCHAR(25) NULL DEFAULT NULL AFTER `system_log`;
+ADD COLUMN `cpu_temp` VARCHAR(25) NULL DEFAULT NULL AFTER `disk_usage`;
 
 ALTER TABLE `zmp`.`commands`
 ADD COLUMN `command_consumed_date_time` DATETIME NULL DEFAULT NULL AFTER `to_be_exec`;

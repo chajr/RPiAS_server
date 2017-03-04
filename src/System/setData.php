@@ -9,6 +9,20 @@ use Database\Query;
 class setData
 {
     /**
+     * @var array
+     */
+    protected $tempParsing = [
+        'rpi-mc' => [
+            'check' => 'temp=[\d]+\.?[\d]{1,2}?\'C',
+            'parse' => '[\d]+\.?([\d]+)?',
+        ],
+        'master' => [
+            'check' => 'temp1:[ ]+\+[\d]+\.?([\d]+)?°C',
+            'parse' => '[\d]+\.?([\d]+)?',
+        ],
+    ];
+
+    /**
      * setData constructor.
      *
      * @param \Aura\Web\Request $request
@@ -28,6 +42,7 @@ class setData
             $message = 'Incorrect secure token.';
         } else {
             $post = $request->post;
+            $host = $post->get('hostname', '');
 
             $query = (new Query)
                 ->insert()
@@ -46,11 +61,15 @@ class setData
                     'logged_in_users' => $post->get('logged_in_users', ''),
                     'logged_in_users_count' => $post->get('logged_in_users_count', 0),
                     'users_work' => $post->get('users_work', ''),
-                    'hostname' => $post->get('hostname', ''),
+                    'hostname' => $host,
                     'ip_internal' => $post->get('ip_internal', ''),
                     'ip_external' => $post->get('ip_external', ''),
                     'extra' => json_encode($post->get('extra', '')),
                     'disk_usage' => $post->get('disk_usage', ''),
+                    'cpu_temp' => $this->parseCpuTemp(
+                        $post->get('cpu_temp', ''),
+                        $host
+                    ),
                 ]);
             (new Connect)->query($query);
         }
@@ -61,5 +80,29 @@ class setData
         ]);
 
         $response->content->set($view->__invoke());
+    }
+
+    /**
+     * @param string $temp
+     * @param string $host
+     * @return string
+     */
+    protected function parseCpuTemp($temp, $host)
+    {
+        $temperature = '';
+        $matches = [];
+        $count = 1;
+        $tempDetected = preg_match($this->tempParsing[$host]['check'], $temp, $matches);
+
+        if (!$tempDetected) {
+            return 0;
+        }
+
+        foreach ($matches as $match) {
+            $val = preg_grep($this->tempParsing[$host]['check'], $match);
+            $temperature .= 't' . $count++ . ': ' . reset($val);
+        }
+
+        return $temperature;
     }
 }

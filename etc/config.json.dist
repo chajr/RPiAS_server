@@ -8,12 +8,21 @@
     },
     "secure_token": "",
     "routing": {
+        "": {
+            "route": "/",
+            "method": "get",
+            "action": "index",
+            "view": "index",
+            "layout": "index",
+            "object": "\\Manager\\Main",
+            "enabled": true
+        },
         "system": {
             "route": "/system",
             "method": "post",
             "action": "system",
             "view": "api_response",
-            "layout": "index",
+            "layout": "output",
             "object": "\\System\\setData",
             "enabled": true
         },
@@ -22,7 +31,7 @@
             "method": "post",
             "action": "command_get",
             "view": "api_response",
-            "layout": "command",
+            "layout": "output",
             "object": "\\Command\\getData",
             "enabled": true
         },
@@ -31,16 +40,43 @@
             "method": "post",
             "action": "command_set",
             "view": "api_response",
-            "layout": "command",
+            "layout": "output",
             "object": "\\Command\\setData",
             "enabled": true
         },
+        "light_on": {
+            "route": "/light_on",
+            "method": "post",
+            "action": "light_on",
+            "view": "api_response",
+            "layout": "output",
+            "object": "\\Light\\Enable",
+            "enabled": true
+        },
+        "light_off": {
+            "route": "/light_off",
+            "method": "post",
+            "action": "light_off",
+            "view": "api_response",
+            "layout": "output",
+            "object": "\\Light\\Disable",
+            "enabled": true
+        },
+        "light_default": {
+            "route": "/light_default",
+            "method": "post",
+            "action": "light_default",
+            "view": "api_response",
+            "layout": "output",
+            "object": "\\Light\\SetDefault",
+            "enabled": true
+        },
         "alert": {
-            "route": "/system",
+            "route": "/alert",
             "method": "post",
             "action": "alert",
             "view": "api_response",
-            "layout": "index",
+            "layout": "output",
             "object": "\\Alert\\Uploader",
             "enabled": true
         }

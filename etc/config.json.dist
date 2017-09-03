@@ -23,7 +23,7 @@
             "action": "system",
             "view": "api_response",
             "layout": "output",
-            "object": "\\System\\setData",
+            "object": "\\System\\SetData",
             "enabled": true
         },
         "command_get": {
@@ -32,7 +32,7 @@
             "action": "command_get",
             "view": "api_response",
             "layout": "output",
-            "object": "\\Command\\getData",
+            "object": "\\Command\\GetData",
             "enabled": true
         },
         "command_set": {
@@ -41,7 +41,7 @@
             "action": "command_set",
             "view": "api_response",
             "layout": "output",
-            "object": "\\Command\\setData",
+            "object": "\\Command\\SetData",
             "enabled": true
         },
         "light_on": {

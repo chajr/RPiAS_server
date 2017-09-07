@@ -7,24 +7,24 @@ class Config
     /**
      * @var array|null
      */
-    protected static $_loadedConfig = null;
+    protected static $loadedConfig = null;
 
     /**
      * load configuration
      *
      * @param string|bool $path
      */
-    public static function Load($path = false)
+    public static function load($path = false)
     {
         $configPath = '../etc/config.json';
 
         if ($path) {
             $configPath = $path;
-        } 
+        }
 
         $config = file_get_contents($configPath);
 
-        self::$_loadedConfig = json_decode($config, true);
+        self::$loadedConfig = json_decode($config, true);
     }
 
     /**
@@ -34,10 +34,10 @@ class Config
      */
     public static function getConfig()
     {
-        if (is_null(self::$_loadedConfig)) {
-            self::Load();
+        if (is_null(self::$loadedConfig)) {
+            self::load();
         }
 
-        return self::$_loadedConfig;
+        return self::$loadedConfig;
     }
 }

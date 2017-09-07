@@ -42,6 +42,6 @@ class Enable
             'message' => $message,
         ]);
 
-        $response->content->set($view->__invoke());
+        $response->content->set($view());
     }
 }

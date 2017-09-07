@@ -13,24 +13,24 @@ class Connect
      *
      * @var ExtendedPdo|null
      */
-    protected static $_connection = null;
+    protected static $connection = null;
 
     /**
      * create connection
      */
     public function __construct()
     {
-        if (is_null(self::$_connection)) {
+        if (is_null(self::$connection)) {
             try {
                 $dbConfig = Config::getConfig()['database'];
 
-                self::$_connection = new ExtendedPdo(
+                self::$connection = new ExtendedPdo(
                     "mysql:host={$dbConfig['host']};dbname={$dbConfig['database']};port={$dbConfig['port']}",
                     $dbConfig['user'],
                     $dbConfig['pass']
                 );
 
-                self::$_connection->connect();
+                self::$connection->connect();
             } catch (\Exception $e) {
                 Log::addError($e->getMessage(), 'db connection');
             }
@@ -47,10 +47,10 @@ class Connect
     public function query($queryObject)
     {
         $query = $queryObject->__toString();
-        $sth = self::$_connection->prepare($query);
+        $sth = self::$connection->prepare($query);
 
         if (!$sth) {
-            $err = self::$_connection->errorInfo();
+            $err = self::$connection->errorInfo();
             throw new \Exception('DB Error: ' . $err[0] . ' - ' . $err[2]);
         }
 
@@ -78,6 +78,6 @@ class Connect
      */
     public function __destruct()
     {
-        self::$_connection->disconnect();
+        self::$connection->disconnect();
     }
 }

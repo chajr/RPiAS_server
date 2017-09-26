@@ -1,6 +1,6 @@
 <?php
 
-namespace Alert;
+namespace Light;
 
 use Log\Log;
 use Config\Config;

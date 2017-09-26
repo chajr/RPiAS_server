@@ -4,6 +4,9 @@ namespace Database;
 
 use Config\Config;
 use Aura\Sql\ExtendedPdo;
+use Aura\SqlQuery\AbstractQuery;
+use Aura\SqlQuery\Common\SelectInterface;
+use Aura\SqlQuery\Common\ValuesInterface;
 use Log\Log;
 
 class Connect
@@ -13,7 +16,7 @@ class Connect
      *
      * @var ExtendedPdo|null
      */
-    protected static $connection = null;
+    protected static $connection;
 
     /**
      * create connection
@@ -40,7 +43,7 @@ class Connect
     /**
      * execute query
      *
-     * @param \Aura\SqlQuery\AbstractQuery|\Aura\SqlQuery\Common\SelectInterface|\Aura\SqlQuery\Common\ValuesInterface $queryObject
+     * @param AbstractQuery|SelectInterface|ValuesInterface $queryObject
      * @return array|\PDOStatement
      * @throws \Exception
      */

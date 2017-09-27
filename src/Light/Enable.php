@@ -2,7 +2,6 @@
 
 namespace Light;
 
-use Log\Log;
 use Config\Config;
 use Command\Manage;
 
@@ -21,7 +20,7 @@ class Enable
         $message = 'Light turned on.';
         $manager = new Manage;
 
-        $secureToken = (new Config)->getConfig()['secure_token'];
+        $secureToken = Config::getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {

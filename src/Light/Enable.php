@@ -1,6 +1,6 @@
 <?php
 
-namespace Alert;
+namespace Light;
 
 use Log\Log;
 use Config\Config;
@@ -28,13 +28,8 @@ class Enable
             $status  = 'error';
             $message = 'Incorrect secure token';
         } else {
-            $request->post->host = 'rpi-mc';
-
-            $request->post->command = 'redis-cli set rpia_illuminate_force true';
-            $manager->setCommand($request->post);
-
-            $request->post->command = 'redis-cli set rpia_illuminate_status true';
-            $manager->setCommand($request->post);
+            $manager->setCommand($this->createValueObject('redis-cli set rpia_illuminate_force true'));
+            $manager->setCommand($this->createValueObject('redis-cli set rpia_illuminate_status true'));
         }
 
         $view->setData([
@@ -43,5 +38,18 @@ class Enable
         ]);
 
         $response->content->set($view());
+    }
+
+    /**
+     * @param string $command
+     * @return \Aura\Web\Request\Values
+     */
+    protected function createValueObject($command)
+    {
+        return new \Aura\Web\Request\Values([
+            'host' => 'rpi-mc',
+            'to_be_exec' => '0000-00-00 00:00:00',
+            'command' => $command,
+        ]);
     }
 }

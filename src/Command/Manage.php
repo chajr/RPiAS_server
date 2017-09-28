@@ -4,30 +4,40 @@ namespace Command;
 
 use Database\Connect;
 use Database\Query;
+use Log\Log;
 use \Aura\Web\Request\Values;
 
 class Manage
 {
     /**
      * @param \Aura\Web\Request\Values $post
+     * @return bool
      */
     public function setCommand(Values $post)
     {
         $query = (new Query)
             ->insert()
-            ->table('commands')
+            ->into('commands')
             ->cols([
                 'consumed' => 0,
-                'command' => $post->get('command', null),
+                'command' => $post->get('command'),
                 'to_be_exec' => $post->get('to_be_exec', '0000-00-00 00:00:00'),
-                'host' => $post->get('host', null),
+                'host' => $post->get('host'),
             ]);
 
-        (new Connect)->query($query);
+        try {
+            (new Connect)->query($query);
+            return true;
+        } catch (\Exception $exception) {
+            Log::addError($exception->getMessage());
+        }
+
+        return false;
     }
 
     /**
      * @param \Aura\Web\Request\Values $post
+     * @throws \Exception
      */
     public function markAsConsumed(Values $post)
     {
@@ -35,9 +45,9 @@ class Manage
             return;
         }
 
-        $commandId = $post->get('command_id', null);
+        $commandId = $post->get('command_id');
         $consumedDate = $post->get('command_consumed_date_time', '0000-00-00 00:00:00');
-        $mongoId = $post->get('mongo_id', null);
+        $mongoId = $post->get('mongo_id');
 
         if ($commandId) {
             $query = (new Query)
@@ -56,12 +66,13 @@ class Manage
 
     /**
      * @param \Aura\Web\Request\Values $post
+     * @throws \Exception
      */
     public function setOutput(Values $post)
     {
         if ($post->get('data_update', false)) {
             $currentTime = date('Y-m-d H:i:s');
-            $commandId = $post->get('command_id', null);
+            $commandId = $post->get('command_id');
 
             $executed = $post->get('executed', 0);
             $output = $post->get('output', '');

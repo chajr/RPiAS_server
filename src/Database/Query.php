@@ -9,20 +9,19 @@ class Query
     /**
      * @var Connect
      */
-    protected $_connection;
+    protected $connection;
 
     /**
      * @var QueryFactory
      */
-    protected $_factory;
+    protected $factory;
 
     /**
      * Create sql query factory
      */
     public function __construct()
     {
-        $this->_connection = new Connect;
-        $this->_factory = new QueryFactory('mysql');
+        $this->factory = new QueryFactory('mysql');
     }
 
     /**
@@ -32,7 +31,7 @@ class Query
      */
     public function select()
     {
-        return $this->_factory->newSelect();
+        return $this->factory->newSelect();
     }
 
     /**
@@ -42,7 +41,7 @@ class Query
      */
     public function insert()
     {
-        return  $this->_factory->newInsert();
+        return  $this->factory->newInsert();
     }
 
     /**
@@ -52,6 +51,6 @@ class Query
      */
     public function update()
     {
-        return $this->_factory->newUpdate();
+        return $this->factory->newUpdate();
     }
 }

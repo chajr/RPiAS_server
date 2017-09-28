@@ -3,7 +3,11 @@ namespace Aura\Framework_Project\_Config;
 
 use Aura\Di\Config;
 use Aura\Di\Container;
+use Aura\View\TemplateRegistry;
+use Aura\View\View;
 use Config\Config as SystemConfig;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 class Common extends Config
 {
@@ -13,60 +17,68 @@ class Common extends Config
     protected $config = [];
 
     /**
-     * @param Container $di
+     * @param Container $dependency
      * @return void
+     * @throws \Aura\Di\Exception\ServiceNotObject
+     * @throws \Aura\Di\Exception\ContainerLocked
      */
-    public function define(Container $di)
+    public function define(Container $dependency)
     {
-        $di->set('aura/project-kernel:logger', $di->lazyNew('Monolog\Logger'));
+        $dependency->set('aura/project-kernel:logger', $dependency->lazyNew(Logger::class));
 
-        $di->params['Aura\View\TemplateRegistry']['paths'] = [
+        $dependency->params[TemplateRegistry::class]['paths'] = [
             dirname(__DIR__) . '/templates/views',
             dirname(__DIR__) . '/templates/layouts',
         ];
-        $di->set('view', $di->lazyNew('Aura\View\View'));
+
+        $dependency->set('view', $dependency->lazyNew(View::class));
     }
 
     /**
-     * @param Container $di
+     * @param Container $dependency
      * @return void
+     * @throws \Aura\Di\Exception\SetterMethodNotFound
+     * @throws \Aura\Di\Exception\ServiceNotFound
      */
-    public function modify(Container $di)
+    public function modify(Container $dependency)
     {
-        $this->modifyLogger($di);
-        $this->modifyCliDispatcher($di);
-        $this->modifyWebRouter($di);
-        $this->modifyWebDispatcher($di);
+        $this->modifyLogger($dependency);
+        $this->modifyCliDispatcher($dependency);
+        $this->modifyWebRouter($dependency);
+        $this->modifyWebDispatcher($dependency);
     }
 
     /**
-     * @param Container $di
+     * @param Container $dependency
+     * @throws \Aura\Di\Exception\ServiceNotFound
+     * @throws \Aura\Di\Exception\SetterMethodNotFound
      */
-    protected function modifyLogger(Container $di)
+    protected function modifyLogger(Container $dependency)
     {
-        $project = $di->get('project');
+        $project = $dependency->get('project');
         $mode = $project->getMode();
         $file = $project->getPath("tmp/log/{$mode}.log");
 
-        $logger = $di->get('aura/project-kernel:logger');
-        $logger->pushHandler($di->newInstance(
-            'Monolog\Handler\StreamHandler',
+        $logger = $dependency->get('aura/project-kernel:logger');
+        $logger->pushHandler($dependency->newInstance(
+            StreamHandler::class,
             ['stream' => $file]
         ));
     }
 
     /**
-     * @param Container $di
+     * @param Container $dependency
+     * @throws \Aura\Di\Exception\ServiceNotFound
      */
-    protected function modifyCliDispatcher(Container $di)
+    protected function modifyCliDispatcher(Container $dependency)
     {
-        $context = $di->get('aura/cli-kernel:context');
-        $stdio = $di->get('aura/cli-kernel:stdio');
-        $logger = $di->get('aura/project-kernel:logger');
-        $dispatcher = $di->get('aura/cli-kernel:dispatcher');
+//        $context = $dependency->get('aura/cli-kernel:context');
+        $stdio = $dependency->get('aura/cli-kernel:stdio');
+        $logger = $dependency->get('aura/project-kernel:logger');
+        $dispatcher = $dependency->get('aura/cli-kernel:dispatcher');
         $dispatcher->setObject(
             'hello',
-            function ($name = 'World') use ($context, $stdio, $logger) {
+            function ($name = 'World') use ($stdio, $logger) {
                 $stdio->outln("Hello {$name}!");
                 $logger->debug("Said hello to '{$name}'");
             }
@@ -74,12 +86,13 @@ class Common extends Config
     }
 
     /**
-     * @param Container $di
+     * @param Container $dependency
+     * @throws \Aura\Di\Exception\ServiceNotFound
      */
-    public function modifyWebRouter(Container $di)
+    public function modifyWebRouter(Container $dependency)
     {
         $this->init();
-        $router = $di->get('aura/web-kernel:router');
+        $router = $dependency->get('aura/web-kernel:router');
 
         foreach ($this->config['routing'] as $name => $settings) {
             if ($settings['enabled'] === false) {
@@ -92,18 +105,19 @@ class Common extends Config
     }
 
     /**
-     * @param Container $di
+     * @param Container $dependency
+     * @throws \Aura\Di\Exception\ServiceNotFound
      */
-    public function modifyWebDispatcher(Container $di)
+    public function modifyWebDispatcher(Container $dependency)
     {
         /** @var \Aura\View\View $view */
-        $view = $di->get('view');
+        $view = $dependency->get('view');
         /** @var \Aura\Dispatcher\Dispatcher $dispatcher */
-        $dispatcher = $di->get('aura/web-kernel:dispatcher');
+        $dispatcher = $dependency->get('aura/web-kernel:dispatcher');
         /** @var \Aura\Web\Response $response */
-        $response = $di->get('aura/web-kernel:response');
+        $response = $dependency->get('aura/web-kernel:response');
         /** @var \Aura\Web\Request $request */
-        $request = $di->get('aura/web-kernel:request');
+        $request = $dependency->get('aura/web-kernel:request');
 
         $this->init();
 
@@ -116,7 +130,7 @@ class Common extends Config
                 $view->setView($settings['view']);
                 $view->setLayout($settings['layout']);
 
-                (new $settings['object']($request, $response, $view));
+                new $settings['object']($request, $response, $view);
             });
         }
     }
@@ -129,7 +143,7 @@ class Common extends Config
     protected function init()
     {
         if (empty($this->config)) {
-            $this->config = (new SystemConfig)->getConfig();
+            $this->config = SystemConfig::getConfig();
         }
 
         return $this;

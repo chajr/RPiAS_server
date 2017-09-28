@@ -54,7 +54,7 @@ class Connect
 
         if (!$sth) {
             $err = self::$connection->errorInfo();
-            throw new \Exception('DB Error: ' . $err[0] . ' - ' . $err[2]);
+            throw new \PDOException('DB Error: ' . $err[0] . ' - ' . $err[2]);
         }
 
         $values = $queryObject->getBindValues();
@@ -68,7 +68,7 @@ class Connect
 
         if (!$res) {
             $err = $sth->errorInfo();
-            throw new \Exception('DB Error: ' . $err[0] . ' - ' . $err[2]);
+            throw new \PDOException('DB Error: ' . $err[0] . ' - ' . $err[2]);
         }
 
         return $sth;

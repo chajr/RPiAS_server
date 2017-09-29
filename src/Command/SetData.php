@@ -12,6 +12,7 @@ class SetData
      * @param \Aura\Web\Request $request
      * @param \Aura\Web\Response $response
      * @param \Aura\View\View $view
+     * @throws \Exception
      */
     public function __construct($request, $response, $view)
     {
@@ -19,7 +20,7 @@ class SetData
         $message = 'Data updated successfully.';
         $manager = new Manage;
 
-        $secureToken = (new Config)->getConfig()['secure_token'];
+        $secureToken = Config::getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {

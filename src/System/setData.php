@@ -16,6 +16,10 @@ class setData
             'check' => 'temp=[\d]+\.?[\d]{1,2}?\'C',
             'parse' => '[\d]+\.?([\d]+)?',
         ],
+        'osmc' => [
+            'check' => 'temp=[\d]+\.?[\d]{1,2}?\'C',
+            'parse' => '[\d]+\.?([\d]+)?',
+        ],
         'master' => [
             'check' => 'temp1:[ ]+\+[\d]+\.?([\d]+)?°C',
             'parse' => '[\d]+\.?([\d]+)?',

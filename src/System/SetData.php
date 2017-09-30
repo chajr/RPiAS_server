@@ -6,10 +6,11 @@ use Database\Connect;
 use Config\Config;
 use Database\Query;
 
-class setData
+class SetData
 {
     /**
      * @var array
+     * @todo move to config
      */
     protected $tempParsing = [
         'rpi-mc' => [
@@ -38,7 +39,7 @@ class setData
         $status = 'success';
         $message = 'Data written successfully.';
 
-        $secureToken = (new Config)->getConfig()['secure_token'];
+        $secureToken = Config::getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {
@@ -83,7 +84,7 @@ class setData
             'message' => $message,
         ]);
 
-        $response->content->set($view->__invoke());
+        $response->content->set($view());
     }
 
     /**

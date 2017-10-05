@@ -12,7 +12,7 @@ class SetData
      * @var array
      * @todo move to config
      */
-    protected $tempParsing = [
+    const TEMP_PARSING = [
         'rpi-mc' => [
             'check' => 'temp=[\d]+\.?[\d]{1,2}?\'C',
             'parse' => '[\d]+\.?([\d]+)?',
@@ -97,14 +97,16 @@ class SetData
         $temperature = '';
         $matches = [];
         $count = 1;
-        $tempDetected = preg_match($this->tempParsing[$host]['check'], $temp, $matches);
+        $host = trim($host);
+        $expression = self::TEMP_PARSING[$host];
+        $tempDetected = preg_match('#' . $expression['check'] . '#', $temp, $matches);
 
         if (!$tempDetected) {
             return 0;
         }
 
         foreach ($matches as $match) {
-            $val = preg_grep($this->tempParsing[$host]['check'], $match);
+            $val = preg_grep('#' . $expression['parse'] . '#', $match);
             $temperature .= 't' . $count++ . ': ' . reset($val);
         }
 

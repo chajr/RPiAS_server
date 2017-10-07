@@ -42,11 +42,12 @@ class Enable
     /**
      * @param string $command
      * @return \Aura\Web\Request\Values
+     * @todo host in config
      */
     protected function createValueObject($command)
     {
         return new \Aura\Web\Request\Values([
-            'host' => 'rpi-mc',
+            'host' => 'osmc',
             'to_be_exec' => '0000-00-00 00:00:00',
             'command' => $command,
         ]);

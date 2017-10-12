@@ -18,20 +18,17 @@ class SetDefault
     public function __construct($request, $response, $view)
     {
         $status = 'success';
-        $message = 'Light turned on.';
+        $message = 'Light on/off set to default.';
         $manager = new Manage;
 
-        $secureToken = (new Config)->getConfig()['secure_token'];
+        $secureToken = Config::getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status  = 'error';
             $message = 'Incorrect secure token';
         } else {
-            $request->post->host = 'rpi-mc';
-
-            $request->post->command = 'redis-cli set rpia_illuminate_force null';
-            $manager->setCommand($request->post);
+            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_force null'));
         }
 
         $view->setData([

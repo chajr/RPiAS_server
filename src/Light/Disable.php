@@ -21,20 +21,15 @@ class Disable
         $message = 'Light turned on.';
         $manager = new Manage;
 
-        $secureToken = (new Config)->getConfig()['secure_token'];
+        $secureToken = Config::getConfig()['secure_token'];
         $retrievedSecureToken = $request->query->get('key', '');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status  = 'error';
             $message = 'Incorrect secure token';
         } else {
-            $request->post->host = 'rpi-mc';
-
-            $request->post->command = 'redis-cli set rpia_illuminate_force false';
-            $manager->setCommand($request->post);
-
-            $request->post->command = 'redis-cli set rpia_illuminate_status false';
-            $manager->setCommand($request->post);
+            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_force false'));
+            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_status false'));
         }
 
         $view->setData([

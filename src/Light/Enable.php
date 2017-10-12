@@ -27,8 +27,8 @@ class Enable
             $status  = 'error';
             $message = 'Incorrect secure token';
         } else {
-            $manager->setCommand($this->createValueObject('redis-cli set rpia_illuminate_force true'));
-            $manager->setCommand($this->createValueObject('redis-cli set rpia_illuminate_status true'));
+            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_force true'));
+            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_status true'));
         }
 
         $view->setData([
@@ -37,19 +37,5 @@ class Enable
         ]);
 
         $response->content->set($view());
-    }
-
-    /**
-     * @param string $command
-     * @return \Aura\Web\Request\Values
-     * @todo host in config
-     */
-    protected function createValueObject($command)
-    {
-        return new \Aura\Web\Request\Values([
-            'host' => 'osmc',
-            'to_be_exec' => '0000-00-00 00:00:00',
-            'command' => $command,
-        ]);
     }
 }

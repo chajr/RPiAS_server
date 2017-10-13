@@ -1,25 +1,25 @@
 {
-    "name": "aura/framework-project",
+    "name": "chajr/RPiAS_server",
     "type": "project",
-    "description": "A minimal web+cli framework built from Aura v2 packages",
+    "description": "",
     "keywords": [
-        "framework"
+        ""
     ],
     "license": "BSD-2-Clause",
     "authors": [
         {
-            "name": "Aura.Framework_Project Contributors",
-            "homepage": "https://github.com/auraphp/Aura.Framework_Project/contributors"
+            "name": "Michał Adamiak",
+            "homepage": "https://github.com/chajr/RPiAS_server"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "aura/cli-kernel": "~2.0",
         "aura/web-kernel": "~2.0",
-        "monolog/monolog": "~1.0",
-        "foa/html-view-bundle": "2.*",
         "aura/sql": "2.4.*",
         "aura/sqlquery": "2.6.*",
+        "aura/auth": "2.0.*",
+        "foa/html-view-bundle": "2.*",
+        "monolog/monolog": "~1.0",
         "symfony/filesystem": "2.*"
     },
     "autoload": {

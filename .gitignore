@@ -1,6 +1,5 @@
 .idea
 /vendor
-composer.lock
 tmp/cache
 !tmp/cache/.placeholder
 tmp/log

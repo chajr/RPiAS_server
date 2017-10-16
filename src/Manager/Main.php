@@ -2,6 +2,9 @@
 
 namespace Manager;
 
+use Log\Log;
+use Config\Config;
+
 class Main
 {
     /**
@@ -13,10 +16,24 @@ class Main
     {
         $message = 'Main Page';
 
+        $secureToken = Config::getConfig()['secure_token'];
+        $retrievedSecureToken = $request->query->get('key', '');
+
+        if ($secureToken !== $retrievedSecureToken) {
+            $message = 'Incorrect secure token';
+        } else {
+            $this->mainPage($request, $response, $view);
+        }
+
         $view->setData([
             'message' => $message,
         ]);
 
         $response->content->set($view());
+    }
+
+    protected function mainPage($request, $response, $view)
+    {
+        
     }
 }

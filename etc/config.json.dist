@@ -80,5 +80,17 @@
             "object": "\\Alert\\Uploader",
             "enabled": true
         }
+    },
+    "system": {
+        "temp-parsing": {
+            "host_name": {
+                "check": "temp=[\d]+\.?[\d]{1,2}?\"C",
+                "parse": "[\d]+\.?([\d]+)?"
+            },
+            "host_name2": {
+                "check": "temp1:[ ]+\+[\d]+\.?([\d]+)?°C",
+                "parse": "[\d]+\.?([\d]+)?"
+            }
+        }
     }
 }

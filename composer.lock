@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "77c3b6d517268cc339bc9e6bfbff1420",
+    "content-hash": "b5220ad8cf1279f97b499b02c8df95da",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "reference": "156f56c3c183a3b8486c47b122c7fa8819510a90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/156f56c3c183a3b8486c47b122c7fa8819510a90",
+                "reference": "156f56c3c183a3b8486c47b122c7fa8819510a90",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abdullah Almsaeed",
+                    "email": "abdullah@almsaeedstudio.com"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+            "homepage": "https://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2017-10-09T16:32:18+00:00"
+        },
         {
             "name": "aura/auth",
             "version": "2.0.1",
@@ -68,16 +108,16 @@
         },
         {
             "name": "aura/cli",
-            "version": "2.x-dev",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Cli.git",
-                "reference": "65d945819d51379a20371ebf3893987cdc18af5a"
+                "reference": "d69cfa6d81e94e13d831e38ad9e3d53aa0f08a8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Cli/zipball/65d945819d51379a20371ebf3893987cdc18af5a",
-                "reference": "65d945819d51379a20371ebf3893987cdc18af5a",
+                "url": "https://api.github.com/repos/auraphp/Aura.Cli/zipball/d69cfa6d81e94e13d831e38ad9e3d53aa0f08a8b",
+                "reference": "d69cfa6d81e94e13d831e38ad9e3d53aa0f08a8b",
                 "shasum": ""
             },
             "require": {
@@ -121,11 +161,11 @@
                 "options",
                 "stdio"
             ],
-            "time": "2016-01-05 16:13:31"
+            "time": "2017-02-09T17:14:27+00:00"
         },
         {
             "name": "aura/cli-kernel",
-            "version": "2.x-dev",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Cli_Kernel.git",
@@ -175,11 +215,11 @@
                 "cli",
                 "kernel"
             ],
-            "time": "2015-04-04 14:02:32"
+            "time": "2015-04-04T14:02:32+00:00"
         },
         {
             "name": "aura/di",
-            "version": "2.x-dev",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Di.git",
@@ -224,20 +264,20 @@
                 "di",
                 "di container"
             ],
-            "time": "2016-01-21 09:34:53"
+            "time": "2016-01-21T09:34:53+00:00"
         },
         {
             "name": "aura/dispatcher",
-            "version": "2.x-dev",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Dispatcher.git",
-                "reference": "8cfffc653a051082caef8d5f413f8cc5df2519df"
+                "reference": "d84a58d00788220077b7281f293f748470eabec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Dispatcher/zipball/8cfffc653a051082caef8d5f413f8cc5df2519df",
-                "reference": "8cfffc653a051082caef8d5f413f8cc5df2519df",
+                "url": "https://api.github.com/repos/auraphp/Aura.Dispatcher/zipball/d84a58d00788220077b7281f293f748470eabec5",
+                "reference": "d84a58d00788220077b7281f293f748470eabec5",
                 "shasum": ""
             },
             "require": {
@@ -271,27 +311,28 @@
                 "dispatcher",
                 "factory"
             ],
-            "time": "2015-04-04 14:09:19"
+            "time": "2016-10-03T19:45:52+00:00"
         },
         {
             "name": "aura/html",
-            "version": "2.x-dev",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Html.git",
-                "reference": "496c1278b5ee86cf6c1ae9af6f4ffd795d419a5e"
+                "reference": "eda14b491f45fe2e1d1fec3364b1c783d7b7da31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Html/zipball/496c1278b5ee86cf6c1ae9af6f4ffd795d419a5e",
-                "reference": "496c1278b5ee86cf6c1ae9af6f4ffd795d419a5e",
+                "url": "https://api.github.com/repos/auraphp/Aura.Html/zipball/eda14b491f45fe2e1d1fec3364b1c783d7b7da31",
+                "reference": "eda14b491f45fe2e1d1fec3364b1c783d7b7da31",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "aura/di": "~2.0"
+                "aura/di": "~2.0",
+                "phpunit/phpunit": "~5.7 || ~4.8"
             },
             "type": "library",
             "extra": {
@@ -331,11 +372,11 @@
                 "html",
                 "input"
             ],
-            "time": "2016-02-13 14:14:42"
+            "time": "2017-07-21T06:56:56+00:00"
         },
         {
             "name": "aura/project-kernel",
-            "version": "2.x-dev",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Project_Kernel.git",
@@ -386,20 +427,20 @@
                 "kernel",
                 "project"
             ],
-            "time": "2015-03-27 22:29:48"
+            "time": "2015-03-27T22:29:48+00:00"
         },
         {
             "name": "aura/router",
-            "version": "2.x-dev",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Router.git",
-                "reference": "b98ca5060bfd24a34cd6159d18663ea7dab33bfe"
+                "reference": "d8cb21b7fa8d2b2ae874093d5440688b3356f9c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/b98ca5060bfd24a34cd6159d18663ea7dab33bfe",
-                "reference": "b98ca5060bfd24a34cd6159d18663ea7dab33bfe",
+                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/d8cb21b7fa8d2b2ae874093d5440688b3356f9c4",
+                "reference": "d8cb21b7fa8d2b2ae874093d5440688b3356f9c4",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +481,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2015-09-07 16:00:47"
+            "time": "2016-10-03T20:00:15+00:00"
         },
         {
             "name": "aura/sql",
@@ -561,16 +602,16 @@
         },
         {
             "name": "aura/view",
-            "version": "2.x-dev",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.View.git",
-                "reference": "c7d9ca4aab74f2b1d1837b13519c5fafaded966d"
+                "reference": "58dbc0361c040019be72cf410e693583c469b084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.View/zipball/c7d9ca4aab74f2b1d1837b13519c5fafaded966d",
-                "reference": "c7d9ca4aab74f2b1d1837b13519c5fafaded966d",
+                "url": "https://api.github.com/repos/auraphp/Aura.View/zipball/58dbc0361c040019be72cf410e693583c469b084",
+                "reference": "58dbc0361c040019be72cf410e693583c469b084",
                 "shasum": ""
             },
             "require": {
@@ -617,20 +658,20 @@
                 "twostep view",
                 "view"
             ],
-            "time": "2016-01-21 18:31:00"
+            "time": "2017-07-21T05:15:05+00:00"
         },
         {
             "name": "aura/web",
-            "version": "2.x-dev",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Web.git",
-                "reference": "3874c3cd55bc247bfe8ebaf64133c90a11c0fc95"
+                "reference": "6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Web/zipball/3874c3cd55bc247bfe8ebaf64133c90a11c0fc95",
-                "reference": "3874c3cd55bc247bfe8ebaf64133c90a11c0fc95",
+                "url": "https://api.github.com/repos/auraphp/Aura.Web/zipball/6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6",
+                "reference": "6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6",
                 "shasum": ""
             },
             "require": {
@@ -670,20 +711,20 @@
                 "request",
                 "response"
             ],
-            "time": "2015-04-04 16:00:33"
+            "time": "2017-02-09T17:05:11+00:00"
         },
         {
             "name": "aura/web-kernel",
-            "version": "2.x-dev",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Web_Kernel.git",
-                "reference": "c2d4b8f51f3b1562f77e32e7f47a7c922420ee37"
+                "reference": "42ab3bec4ccc83f575a1ea869ded964a3893aebe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Web_Kernel/zipball/c2d4b8f51f3b1562f77e32e7f47a7c922420ee37",
-                "reference": "c2d4b8f51f3b1562f77e32e7f47a7c922420ee37",
+                "url": "https://api.github.com/repos/auraphp/Aura.Web_Kernel/zipball/42ab3bec4ccc83f575a1ea869ded964a3893aebe",
+                "reference": "42ab3bec4ccc83f575a1ea869ded964a3893aebe",
                 "shasum": ""
             },
             "require": {
@@ -725,11 +766,11 @@
                 "kernel",
                 "web"
             ],
-            "time": "2015-11-30 18:31:21"
+            "time": "2016-10-03T21:38:39+00:00"
         },
         {
             "name": "foa/html-view-bundle",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/friendsofaura/FOA.Html_View_Bundle.git",
@@ -780,20 +821,20 @@
                 "html",
                 "view"
             ],
-            "time": "2014-10-05 16:43:07"
+            "time": "2014-10-05T16:43:07+00:00"
         },
         {
             "name": "monolog/monolog",
-            "version": "1.x-dev",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "79817af0de141a2278e54acd01fb2532a7548516"
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/79817af0de141a2278e54acd01fb2532a7548516",
-                "reference": "79817af0de141a2278e54acd01fb2532a7548516",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
                 "shasum": ""
             },
             "require": {
@@ -804,17 +845,17 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^2.4.9",
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
-                "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
-                "swiftmailer/swiftmailer": "~5.3",
-                "videlalvaro/php-amqplib": "~2.4"
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -823,11 +864,11 @@
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
-                "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
             "extra": {
@@ -858,20 +899,20 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-01-22 18:13:50"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
-                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -905,20 +946,20 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-01-06 21:40:42"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "2.8.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "cbfaa8a24c38911d2d14ef12118514a504c09dd0"
+                "reference": "5e3af878f144089faddd4060a48cadae4fc44dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/cbfaa8a24c38911d2d14ef12118514a504c09dd0",
-                "reference": "cbfaa8a24c38911d2d14ef12118514a504c09dd0",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5e3af878f144089faddd4060a48cadae4fc44dee",
+                "reference": "5e3af878f144089faddd4060a48cadae4fc44dee",
                 "shasum": ""
             },
             "require": {
@@ -954,12 +995,12 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-27 11:34:40"
+            "time": "2017-10-02T08:46:46+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,

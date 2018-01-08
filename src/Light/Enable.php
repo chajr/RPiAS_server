@@ -2,10 +2,9 @@
 
 namespace Light;
 
-use Config\Config;
 use Command\Manage;
 
-class Enable
+class Enable extends LightSwitcher
 {
     /**
      * setData constructor.
@@ -16,26 +15,18 @@ class Enable
      */
     public function __construct($request, $response, $view)
     {
-        $status = 'success';
-        $message = 'Light turned on.';
-        $manager = new Manage;
+        $this->request = $request;
+        $this->response = $response;
+        $this->view = $view;
 
-        $secureToken = Config::getConfig()['secure_token'];
-        $retrievedSecureToken = $request->query->get('key', '');
+        $this->process(
+            'Light turned on.',
+            function () {
+                $manager = new Manage;
 
-        if ($secureToken !== $retrievedSecureToken) {
-            $status  = 'error';
-            $message = 'Incorrect secure token';
-        } else {
-            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_force true'));
-            $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_status true'));
-        }
-
-        $view->setData([
-            'status' => $status,
-            'message' => $message,
-        ]);
-
-        $response->content->set($view());
+                $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_force on'));
+                $manager->setCommand(Helper::createValueObject('redis-cli set rpia_illuminate_status on'));
+            }
+        );
     }
 }

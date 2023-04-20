@@ -1,5 +1,5 @@
 {
-    "name": "chajr/RPiAS_server",
+    "name": "chajr/rpias_server",
     "type": "project",
     "description": "",
     "keywords": [
@@ -43,5 +43,8 @@
         "psr-4": {
             "Aura\\Framework_Project\\": "tests/"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "~2.8"
     }
 }

@@ -11,6 +11,8 @@
 
 $path = dirname(__DIR__);
 
+date_default_timezone_set( 'Europe/Warsaw' );
+
 require "$path/vendor/autoload.php";
 
 /** @var Aura\Web_Kernel\WebKernel $kernel */

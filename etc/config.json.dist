@@ -17,15 +17,6 @@
             "object": "\\Manager\\Main",
             "enabled": true
         },
-        "system": {
-            "route": "/system",
-            "method": "post",
-            "action": "system",
-            "view": "api_response",
-            "layout": "output",
-            "object": "\\System\\SetData",
-            "enabled": true
-        },
         "command_get": {
             "route": "/command_get",
             "method": "post",
@@ -79,18 +70,6 @@
             "layout": "output",
             "object": "\\Alert\\Uploader",
             "enabled": true
-        }
-    },
-    "system": {
-        "temp-parsing": {
-            "host_name": {
-                "check": "temp=[\d]+\.?[\d]{1,2}?\"C",
-                "parse": "[\d]+\.?([\d]+)?"
-            },
-            "host_name2": {
-                "check": "temp1:[ ]+\+[\d]+\.?([\d]+)?°C",
-                "parse": "[\d]+\.?([\d]+)?"
-            }
         }
     }
 }

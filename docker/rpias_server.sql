@@ -52,50 +52,6 @@ LOCK TABLES `commands` WRITE;
 /*!40000 ALTER TABLE `commands` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `system_log`
---
-
-DROP TABLE IF EXISTS `rpias_server`.`system_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rpias_server`.`system_log` (
-  `log_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cpu_utilization` decimal(10,2) DEFAULT NULL,
-  `system_load` varchar(45) DEFAULT NULL,
-  `memory_free` float DEFAULT NULL,
-  `memory_used` float DEFAULT NULL,
-  `network_utilization` varchar(45) DEFAULT NULL,
-  `disk_utilization` varchar(45) DEFAULT NULL,
-  `hostname` varchar(45) DEFAULT NULL,
-  `log_time` datetime DEFAULT NULL,
-  `uptime_p` varchar(45) DEFAULT NULL,
-  `uptime_s` varchar(45) DEFAULT NULL,
-  `process_number` int(11) DEFAULT NULL,
-  `logged_in_users` varchar(255) DEFAULT NULL,
-  `logged_in_users_count` int(11) DEFAULT NULL,
-  `users_work` text DEFAULT NULL,
-  `ip_internal` varchar(15) DEFAULT NULL,
-  `ip_external` varchar(15) DEFAULT NULL,
-  `extra` text DEFAULT NULL,
-  `log_server_time` datetime DEFAULT NULL,
-  `disk_usage` varchar(45) DEFAULT NULL,
-  `cpu_temp` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`log_id`),
-  UNIQUE KEY `log_id_UNIQUE` (`log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin2;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `system_log`
---
-
-LOCK TABLES `system_log` WRITE;
-/*!40000 ALTER TABLE `system_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `system_log` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

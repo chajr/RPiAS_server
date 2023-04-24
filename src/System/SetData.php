@@ -40,7 +40,7 @@ class SetData
         $message = 'Data written successfully.';
 
         $secureToken = Config::getConfig()['secure_token'];
-        $retrievedSecureToken = $request->query->get('key', '');
+        $retrievedSecureToken = Config::urlParamsBypass('key');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status = 'error';

@@ -18,8 +18,8 @@ class GetData
         $status = 'success';
 
         $secureToken = Config::getConfig()['secure_token'];
-        $retrievedSecureToken = $request->query->get('key', '');
-        $host = $request->query->get('host', '');
+        $retrievedSecureToken = Config::urlParamsBypass('key');
+        $host = Config::urlParamsBypass('host');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status = 'error';

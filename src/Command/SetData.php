@@ -3,6 +3,7 @@
 namespace Command;
 
 use Config\Config;
+use Aura\Web\Request\Values;
 
 class SetData
 {
@@ -27,8 +28,9 @@ class SetData
             $status = 'error';
             $message = 'Incorrect secure token.';
         } else {
-            $manager->markAsConsumed($request->post);
-            $manager->setOutput($request->post);
+            $valObject =  new Values(Config::urlParamsBypass());
+            $manager->markAsConsumed($valObject);
+            $manager->setOutput($valObject);
         }
 
         $view->setData([

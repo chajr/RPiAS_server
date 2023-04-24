@@ -3,6 +3,7 @@
 namespace Light;
 
 use Config\Config;
+use Aura\Web\WebFactory;
 
 class LightSwitcher
 {
@@ -25,12 +26,12 @@ class LightSwitcher
      * @param string $message
      * @param Callback $setRedisCommands
      */
-    public function process($message, Callback $setRedisCommands)
+    public function process($message, \Closure $setRedisCommands)
     {
         $status = 'success';
 
         $secureToken = Config::getConfig()['secure_token'];
-        $retrievedSecureToken = $this->request->query->get('key', '');
+        $retrievedSecureToken = Config::urlParamsBypass('key');
 
         if ($secureToken !== $retrievedSecureToken) {
             $status  = 'error';

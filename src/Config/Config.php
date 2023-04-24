@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use Aura\Web\WebFactory;
+
 class Config
 {
     /**
@@ -39,5 +41,27 @@ class Config
         }
 
         return self::$loadedConfig;
+    }
+
+    /**
+     * @param $param
+     * @return array|mixed|null
+     * @throws \Aura\Web\Exception\InvalidComponent
+     */
+    public static function urlParamsBypass($param = null)
+    {
+        $webFactory = new WebFactory($GLOBALS);
+        $request = $webFactory->newRequest();
+        \parse_str($request->url->get(6), $params);
+
+        if (!$param) {
+            return $params;
+        }
+
+        if (isset($params[$param])) {
+            return $params[$param];
+        }
+
+        return null;
     }
 }

@@ -25,8 +25,20 @@ class Config
         }
 
         $config = file_get_contents($configPath);
+        $configDecoded = json_decode($config, true);
 
-        self::$loadedConfig = json_decode($config, true);
+        $dbPass = \getenv('RPiAS_DB_PASS');
+        $secureToken = \getenv('RPiAS_SECURE_TOKEN');
+
+        if ($dbPass) {
+            $configDecoded['database']['pass'] = $dbPass;
+        }
+
+        if ($secureToken) {
+            $configDecoded['secure_token'] = $secureToken;
+        }
+
+        self::$loadedConfig = $configDecoded;
     }
 
     /**

@@ -1,0 +1,49 @@
+{
+    "name": "chajr/rpias_server",
+    "type": "project",
+    "description": "",
+    "keywords": [
+        ""
+    ],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Michał Adamiak",
+            "homepage": "https://github.com/chajr/RPiAS_server"
+        }
+    ],
+    "require": {
+        "aura/cli-kernel": "~2.0",
+        "aura/web-kernel": "~2.0",
+        "aura/sql": "2.4.*",
+        "aura/sqlquery": "2.6.*",
+        "aura/auth": "2.0.*",
+        "foa/html-view-bundle": "2.*",
+        "monolog/monolog": "~1.0",
+        "symfony/filesystem": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/",
+            "Aura\\Framework_Project\\_Config\\": "config/"
+        }
+    },
+    "extra": {
+        "aura": {
+            "type": "project",
+            "config": {
+                "common": "Aura\\Framework_Project\\_Config\\Common",
+                "test": "Aura\\Framework_Project\\_Config\\Test",
+                "prod": "Aura\\Framework_Project\\_Config\\Prod"
+            }
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aura\\Framework_Project\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "~2.8"
+    }
+}

@@ -3,11 +3,13 @@ USER root
 RUN mkdir /build_composer
 COPY composer.* /build_composer
 WORKDIR /build_composer
+RUN mv composer.json-prod composer.json
 RUN composer install
 
 FROM chajr/php56-nginx-extended:latest as rpias
 COPY ./ /var/www/rpias
 COPY --from=builder /build_composer/vendor /var/www/rpias/vendor
+COPY --from=builder /build_composer/composer.json /var/www/rpias/
 USER root
 RUN mv /var/www/rpias/docker/default.conf /etc/nginx/conf.d/
 RUN rm -fr /var/www/html

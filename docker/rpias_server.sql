@@ -31,7 +31,7 @@ CREATE TABLE `rpias_server`.`commands` (
   `date_time` datetime DEFAULT NULL,
   `response_date_time` datetime DEFAULT NULL,
   `executed` tinyint(1) NOT NULL DEFAULT 0,
-  `response` text DEFAULT NULL,
+  `response` blob DEFAULT NULL,
   `exec_time` datetime DEFAULT NULL,
   `error` tinyint(1) NOT NULL DEFAULT 0,
   `host` varchar(50) DEFAULT NULL,

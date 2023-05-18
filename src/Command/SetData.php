@@ -28,7 +28,7 @@ class SetData
             $status = 'error';
             $message = 'Incorrect secure token.';
         } else {
-            $valObject =  new Values(Config::urlParamsBypass());
+            $valObject = new Values(Config::urlParamsBypassPost());
             $manager->markAsConsumed($valObject);
             $manager->setOutput($valObject);
         }

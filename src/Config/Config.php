@@ -76,4 +76,24 @@ class Config
 
         return null;
     }
+
+    /**
+     * @param $param
+     * @return array|mixed|null
+     * @throws \Aura\Web\Exception\InvalidComponent
+     */
+    public static function urlParamsBypassPost($param = null)
+    {
+        $params = $_POST;
+
+        if (!$param) {
+            return $params;
+        }
+
+        if (isset($params[$param])) {
+            return $params[$param];
+        }
+
+        return null;
+    }
 }
